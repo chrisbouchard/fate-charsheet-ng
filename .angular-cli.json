@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "fate",
       "styles": [
-        "styles.less"
+        "styles.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

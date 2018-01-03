@@ -1,34 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-
-import { ToggleSidebarAction } from '../ui/ui.actions';
-
-import { AppState } from './app.state';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'fate-app',
-    styleUrls: ['./app.component.less'],
     templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-    overlayOpen: Observable<boolean>;
-    sidebarOpen: Observable<boolean>;
+    // overlayOpen: Observable<boolean>;
+    // sidebarOpen: Observable<boolean>;
 
-    constructor(
-        private store: Store<AppState>
-    ) {}
+    // constructor(
+    //     private store: Store<AppState>
+    // ) {}
 
-    ngOnInit(): void {
-        this.overlayOpen = this.store.select(state => state.uiState.overlayOpen);
-        this.sidebarOpen = this.store.select(state => state.uiState.sidebarOpen);
-    }
+    // ngOnInit(): void {
+    //     this.overlayOpen = this.store.select(state => state.uiState.overlayOpen);
+    //     this.sidebarOpen = this.store.select(state => state.uiState.sidebarOpen);
+    // }
 
-    onMenuClick(): void {
-        this.store.dispatch(new ToggleSidebarAction());
-    }
+    // onMenuClick(): void {
+    //     this.store.dispatch(new ToggleSidebarAction());
+    // }
 
 }
 
