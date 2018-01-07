@@ -1,18 +1,17 @@
-<div class="ui borderless top fixed menu">
-    <div class="ui very padded container">
-        <a class="header item" (click)="onMenuClick()" [class.active]="sidebarOpen$ | async">
-            <i class="sidebar icon"></i>
-            Fate Character Sheet
-        </a>
-    </div>
-</div>
 <sui-sidebar-container>
     <sui-sidebar class="inverted vertical" [isVisible]="sidebarOpen$ | async" transition="slide along">
         <router-outlet name="sidebar"></router-outlet>
     </sui-sidebar>
     <sui-sidebar-sibling class="fate-app-pusher" [isDimmedWhenVisible]="true">
-        <div class="fate-app-content">
-            <router-outlet></router-outlet>
+        <div class="fate-app-wrapper">
+            <button class="ui black right attached left floated icon button fate-menu-button"
+                    title="Open Sidebar"
+                    [class.active]="sidebarOpen$ | async" (click)="onMenuClick()">
+                <i class="sidebar icon"></i>
+            </button>
+            <div class="ui container fate-app-content">
+                <router-outlet></router-outlet>
+            </div>
         </div>
     </sui-sidebar-sibling>
 </sui-sidebar-container>

@@ -1,10 +1,8 @@
 .fate-sheet-wrapper {
     position: relative;
     z-index: 5;
-}
-
-.ui.padded.segment.fate-sheet {
-    padding-bottom: 3em;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .fate-skill {
