@@ -3,16 +3,36 @@ import { FromOptions } from './from-options';
 import { AddsShifts } from './adds-shifts';
 
 
-module Consequence {
+module EmptyConsequence {
     export interface Options {
         label: string;
-        name: string;
         rank: number;
     }
 }
 
-export class Consequence extends FromOptions<Consequence.Options>() implements AddsShifts {
+export class EmptyConsequence extends FromOptions<EmptyConsequence.Options>() implements AddsShifts {
+    readonly empty = true;
+
     get shiftsAdded(): number {
         return this.rank;
     }
 }
+
+
+module FullConsequence {
+    export interface Options {
+        label: string;
+        rank: number;
+        name: string;
+    }
+}
+
+export class FullConsequence extends FromOptions<FullConsequence.Options>() implements AddsShifts {
+    readonly empty = false;
+
+    get shiftsAdded(): number {
+        return this.rank;
+    }
+}
+
+export type Consequence = EmptyConsequence | FullConsequence;

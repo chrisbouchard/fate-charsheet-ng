@@ -1,6 +1,6 @@
 <div class="ui padded container">
     <div class="fate-sheet-wrapper">
-        <div class="ui padded piled segment" [class.loading]="loading">
+        <div class="ui padded piled segment fate-sheet" [class.loading]="loading">
             <div *ngIf="character$ | async as character">
 
                 <!-- Header -->
@@ -63,7 +63,7 @@
 
                     <div class="column">
                         <h2 class="ui header">Aspects</h2>
-                        <div class="ui list">
+                        <div class="ui relaxed list">
                             <div class="item" *ngFor="let aspect of character.aspects">
                                 <div class="ui grey sub header" *ngIf="aspect.label">{{aspect.label}}</div>
                                 <a class="fate-taggable">{{aspect.name}}</a>
@@ -101,11 +101,57 @@
 
                     <div class="column">
                         <h2 class="ui header">Stress</h2>
+                        <div class="ui relaxed list">
+                            <div class="item" *ngFor="let track of character.stressTracks">
+                                <div class="ui grey sub header">{{track.name}}</div>
+                                <div class="fate-stress-track">
+                                    <div class="ui tiny horizontal list">
+                                        <div class="item" *ngFor="let checked of track.boxes; index as stress">
+                                            <button class="ui compact circular tiny button"
+                                                    [class.red]="checked" [class.basic]="!checked">
+                                                {{stress}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <h2 class="ui header">Consequences</h2>
+                        <div class="ui relaxed list">
+                            <div class="item" *ngFor="let consequence of character.consequences">
+                                <div class="fate-consequence">
+                                    <div class="left floated content">
+                                        <div class="ui small header">
+                                            {{-consequence.rank | signed}}
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="ui grey sub header">
+                                            {{consequence.label}}
+                                        </div>
+                                        <a href *ngIf="!consequence.empty">
+                                            {{consequence.name}}
+                                        </a>
+                                        <span class="fate-empty-consequence" *ngIf="consequence.empty">
+                                            Empty Slot
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="column">
                         <h2 class="ui header">Stunts</h2>
+                        <div class="ui very relaxed list">
+                            <div class="item" *ngFor="let stunt of character.stunts">
+                                <a href class="header">{{stunt.name}}</a>
+                                <div class="description">
+                                    {{stunt.description}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

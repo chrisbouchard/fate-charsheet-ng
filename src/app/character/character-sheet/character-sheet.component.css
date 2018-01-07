@@ -3,6 +3,10 @@
     z-index: 5;
 }
 
+.ui.padded.segment.fate-sheet {
+    padding-bottom: 3em;
+}
+
 .fate-skill {
     display: flex;
     align-items: center;
