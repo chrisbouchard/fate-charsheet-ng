@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SuiModule } from 'ng2-semantic-ui';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({

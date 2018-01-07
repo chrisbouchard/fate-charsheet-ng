@@ -1,0 +1,31 @@
+.fate-sheet-wrapper {
+    position: relative;
+    z-index: 5;
+}
+
+.fate-skill {
+    display: flex;
+    align-items: center;
+}
+
+.fate-skill-adjective {
+    margin-bottom: 0 !important;
+}
+
+.fate-skill-rank {
+    padding-right: 1ex;
+}
+
+.fate-stress-track {
+    padding-top: 0.25em;
+}
+
+.fate-consequence {
+    display: flex;
+    align-items: center;
+}
+
+.fate-empty-consequence {
+    font-style: italic;
+    color: gray;
+}

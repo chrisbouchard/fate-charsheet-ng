@@ -1,5 +1,5 @@
-import { groupToMap } from '../common/collections';
-import { FromOptions } from '../common/options';
+import { groupToMap } from '../util/collections';
+import { FromOptions } from './from-options';
 
 import { Aspect } from './aspect';
 import { Consequence } from './consequence';

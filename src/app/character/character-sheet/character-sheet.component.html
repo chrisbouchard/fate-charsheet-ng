@@ -1,0 +1,116 @@
+<div class="ui padded container">
+    <div class="fate-sheet-wrapper">
+        <div class="ui padded piled segment" [class.loading]="loading">
+            <div *ngIf="character$ | async as character">
+
+                <!-- Header -->
+                <div class="ui stackable bottom aligned two column grid">
+
+                    <div class="sixteen wide column">
+                        <div class="ui breadcrumb">
+                            <a class="section" href>Home</a>
+                            <i class="right angle icon divider"></i>
+                            <a class="section" href>Star Trek: Fate</a>
+                            <i class="right angle icon divider"></i>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <h1 class="ui header">
+                            {{character.name}}
+                            <span class="sub header">
+                            Played by
+                            <a href>{{character.player?.name}}</a>
+                        </span>
+                        </h1>
+                    </div>
+
+                    <div class="column">
+                        <div class="ui bottom aligned center aligned grid">
+                            <div class="eight wide mobile four wide tablet four wide computer column">
+                                <a class="ui tiny statistic">
+                                    <span class="label">Fate Points</span>
+                                    <span class="value">1</span>
+                                </a>
+                            </div>
+                            <div class="eight wide mobile four wide tablet four wide computer column">
+                                <a class="ui tiny statistic">
+                                    <span class="label">Refresh</span>
+                                    <span class="value">2</span>
+                                </a>
+                            </div>
+                            <div class="eight wide mobile four wide tablet four wide computer column">
+                                <a class="ui tiny statistic">
+                                    <span class="label">Skill Cap</span>
+                                    <span class="value">+5</span>
+                                </a>
+                            </div>
+                            <div class="eight wide mobile four wide tablet four wide computer column">
+                                <a class="ui tiny statistic">
+                                    <span class="label">Skill Points</span>
+                                    <span class="value">35</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="ui section divider"></div>
+
+                <!-- Body -->
+                <div class="ui stackable two column grid">
+
+                    <div class="column">
+                        <h2 class="ui header">Aspects</h2>
+                        <div class="ui list">
+                            <div class="item" *ngFor="let aspect of character.aspects">
+                                <div class="ui grey sub header" *ngIf="aspect.label">{{aspect.label}}</div>
+                                <a class="fate-taggable">{{aspect.name}}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <h2 class="ui header">Skills</h2>
+                        <div class="ui relaxed divided list">
+                            <div class="item"
+                                *ngFor="let entry of character.skillsByRank | entries | sorted:'key':false">
+                                <div class="fate-skill">
+                                    <div class="left floated content">
+                                        <div class="fate-skill-rank">
+                                            <div class="ui small header">{{entry.key | signed}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="ui grey sub header fate-skill-adjective">
+                                            {{entry.key | ladderAdjective}}
+                                        </div>
+                                        <div class="ui horizontal list">
+                                            <div class="item" *ngFor="let skill of entry.value | sorted:'name'">
+                                                <a class="fate-taggable">
+                                                    {{skill.name}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <h2 class="ui header">Stress</h2>
+                        <h2 class="ui header">Consequences</h2>
+                    </div>
+
+                    <div class="column">
+                        <h2 class="ui header">Stunts</h2>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

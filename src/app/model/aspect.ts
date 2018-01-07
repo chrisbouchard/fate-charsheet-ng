@@ -1,5 +1,5 @@
-import { FromOptions } from '../common/options';
 import { AddsShifts } from './adds-shifts';
+import { FromOptions } from './from-options';
 
 module Aspect {
     export interface Options {

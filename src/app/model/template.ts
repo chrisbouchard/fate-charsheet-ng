@@ -1,4 +1,4 @@
-import { FromOptions } from '../common/options';
+import { FromOptions } from './from-options';
 
 module StressTrackSlot {
     export interface Options {

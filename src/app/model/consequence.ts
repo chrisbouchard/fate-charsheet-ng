@@ -1,6 +1,7 @@
-import { FromOptions } from '../common/options';
+import { FromOptions } from './from-options';
 
 import { AddsShifts } from './adds-shifts';
+
 
 module Consequence {
     export interface Options {
@@ -11,5 +12,7 @@ module Consequence {
 }
 
 export class Consequence extends FromOptions<Consequence.Options>() implements AddsShifts {
-    readonly shiftsAdded: number = 2;
+    get shiftsAdded(): number {
+        return this.rank;
+    }
 }

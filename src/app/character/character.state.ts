@@ -1,7 +1,7 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
-import { FromOptions } from '../common/options';
 import { Character } from '../model/character';
+import { FromOptions } from '../model/from-options';
 
 
 export const openAdapter: EntityAdapter<Character> =

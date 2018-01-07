@@ -1,4 +1,4 @@
-import { FromOptions } from '../common/options';
+import { FromOptions } from './from-options';
 
 import { AddsShifts } from './adds-shifts';
 
