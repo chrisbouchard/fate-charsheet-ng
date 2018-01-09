@@ -36,7 +36,10 @@ export class CharacterFacadeService {
             new Aspect({ label: 'Rank', name: 'Captain' }),
             new Aspect({ name: 'To Boldly Go' }),
             new Aspect({ name: 'Warp Core on Legs' }),
-            new Aspect({ name: 'Glint in the Eye' })
+            new Aspect({ name: 'Glint in the Eye' }),
+            new Aspect({ name: `I've Got a Grenade!`, boost: true }),
+            new Aspect({ name: `Test Boost with One Invoke`, boost: true, freeInvokes: 1 }),
+            new Aspect({ name: `Test Boost with Invokes`, boost: true, freeInvokes: 3 }),
         ],
 
         skills: new Set([

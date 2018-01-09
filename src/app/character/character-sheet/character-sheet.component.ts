@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+import { Aspect } from '../../model/aspect';
 import { Character } from '../../model/character';
 
 import { CharacterFacadeService } from '../character-facade.service';

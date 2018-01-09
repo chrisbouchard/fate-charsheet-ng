@@ -19,7 +19,7 @@
                         {{character.name}}
                         <span class="sub header">
                             Played by
-                            <a href>{{character.player?.name}}</a>
+                            <a>{{character.player?.name}}</a>
                         </span>
                     </h1>
                 </div>
@@ -65,7 +65,37 @@
                     <div class="ui relaxed list">
                         <div class="item" *ngFor="let aspect of character.aspects">
                             <div class="ui grey sub header" *ngIf="aspect.label">{{aspect.label}}</div>
-                            <a class="fate-taggable">{{aspect.name}}</a>
+                            <div class="ui bottom left pointing dropdown" suiDropdown>
+                                <a class="fate-aspect">{{aspect.name}}</a>
+                                <div class="ui basic blue small horizontal label" *ngIf="aspect.boost">
+                                    Boost
+                                </div>
+                                <div class="ui blue small horizontal label" *ngIf="aspect.freeInvokes">
+                                    {{aspect.freeInvokes}}
+                                </div>
+                                <div class="menu" suiDropdownMenu menuTransition="slide up">
+                                    <div class="item">
+                                        <div class="fate-action">
+                                            <div>Invoke</div>
+                                            <div class="ui blue tiny horizontal label"
+                                                *ngIf="aspect.freeInvokes">
+                                                Free
+                                            </div>
+                                            <div class="ui red tiny horizontal label"
+                                                *ngIf="!aspect.freeInvokes && aspect.boost">
+                                                Boost
+                                            </div>
+                                            <div class="ui basic tiny horizontal label"
+                                                *ngIf="!aspect.freeInvokes && !aspect.boost">
+                                                FP
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        Add Free Invoke
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -129,9 +159,25 @@
                                     <div class="ui grey sub header">
                                         {{consequence.label}}
                                     </div>
-                                    <a href *ngIf="!consequence.empty">
-                                        {{consequence.name}}
-                                    </a>
+                                    <div class="ui bottom left pointing dropdown" *ngIf="!consequence.empty"
+                                            suiDropdown>
+                                        <a>{{consequence.name}}</a>
+                                        <div class="menu" suiDropdownMenu menuTransition="slide up">
+                                            <div class="item">
+                                                <div class="fate-action">
+                                                    <div>Invoke</div>
+                                                    <div class="ui basic tiny horizontal label">
+                                                        FP
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <div class="fate-action">
+                                                    Clear
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <span class="fate-empty-consequence" *ngIf="consequence.empty">
                                         Empty Slot
                                     </span>
@@ -145,7 +191,7 @@
                     <h2 class="ui header">Stunts</h2>
                     <div class="ui very relaxed list">
                         <div class="item" *ngFor="let stunt of character.stunts">
-                            <a href class="header">{{stunt.name}}</a>
+                            <div class="header">{{stunt.name}}</div>
                             <div class="description">
                                 {{stunt.description}}
                             </div>
