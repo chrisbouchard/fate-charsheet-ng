@@ -9,6 +9,7 @@ import { CharacterListComponent } from './character-list/character-list.componen
 import { CharacterRoutingModule } from './character-routing.module';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { characterReducer } from './character.reducer';
+import { AspectComponent } from './character-sheet/aspect.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { characterReducer } from './character.reducer';
     ],
     declarations: [
         CharacterListComponent,
-        CharacterSheetComponent
+        CharacterSheetComponent,
+        AspectComponent
     ],
     providers: [
         CharacterFacadeService

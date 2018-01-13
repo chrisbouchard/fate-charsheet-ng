@@ -65,37 +65,7 @@
                     <div class="ui relaxed list">
                         <div class="item" *ngFor="let aspect of character.aspects">
                             <div class="ui grey sub header" *ngIf="aspect.label">{{aspect.label}}</div>
-                            <div class="ui bottom left pointing dropdown" suiDropdown>
-                                <a class="fate-aspect">{{aspect.name}}</a>
-                                <div class="ui basic blue small horizontal label" *ngIf="aspect.boost">
-                                    Boost
-                                </div>
-                                <div class="ui blue small horizontal label" *ngIf="aspect.freeInvokes">
-                                    {{aspect.freeInvokes}}
-                                </div>
-                                <div class="menu" suiDropdownMenu menuTransition="slide up">
-                                    <div class="item">
-                                        <div class="fate-action">
-                                            <div>Invoke</div>
-                                            <div class="ui blue tiny horizontal label"
-                                                *ngIf="aspect.freeInvokes">
-                                                Free
-                                            </div>
-                                            <div class="ui red tiny horizontal label"
-                                                *ngIf="!aspect.freeInvokes && aspect.boost">
-                                                Boost
-                                            </div>
-                                            <div class="ui basic tiny horizontal label"
-                                                *ngIf="!aspect.freeInvokes && !aspect.boost">
-                                                FP
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        Add Free Invoke
-                                    </div>
-                                </div>
-                            </div>
+                            <fate-aspect [aspect]="aspect"></fate-aspect>
                         </div>
                     </div>
                 </div>
@@ -159,26 +129,9 @@
                                     <div class="ui grey sub header">
                                         {{consequence.label}}
                                     </div>
-                                    <div class="ui bottom left pointing dropdown" *ngIf="!consequence.empty"
-                                            suiDropdown>
-                                        <a>{{consequence.name}}</a>
-                                        <div class="menu" suiDropdownMenu menuTransition="slide up">
-                                            <div class="item">
-                                                <div class="fate-action">
-                                                    <div>Invoke</div>
-                                                    <div class="ui basic tiny horizontal label">
-                                                        FP
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="fate-action">
-                                                    Clear
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span class="fate-empty-consequence" *ngIf="consequence.empty">
+                                    <fate-aspect [aspect]="consequence.aspect" *ngIf="consequence.aspect">
+                                    </fate-aspect>
+                                    <span class="fate-empty-consequence" *ngIf="!consequence.aspect">
                                         Empty Slot
                                     </span>
                                 </div>

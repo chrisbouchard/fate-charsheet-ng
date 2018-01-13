@@ -5,7 +5,7 @@ import { delay } from 'rxjs/operators';
 
 import { Aspect } from '../model/aspect';
 import { Character } from '../model/character';
-import { EmptyConsequence, FullConsequence } from '../model/consequence';
+import { Consequence } from '../model/consequence';
 import { Player } from '../model/player';
 import { Skill } from '../model/skill';
 import { StressTrack } from '../model/stress-track';
@@ -81,16 +81,18 @@ export class CharacterFacadeService {
         ],
 
         consequences: [
-            new FullConsequence({
-                name: 'Shaken, Not Stirred',
+            new Consequence({
+                aspect: new Aspect({
+                    name: 'Shaken, Not Stirred',
+                }),
                 label: 'Mild',
                 rank: 2
             }),
-            new EmptyConsequence({
+            new Consequence({
                 label: 'Moderate',
                 rank: 4
             }),
-            new EmptyConsequence({
+            new Consequence({
                 label: 'Severe',
                 rank: 6
             })
