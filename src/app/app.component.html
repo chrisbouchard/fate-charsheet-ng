@@ -1,18 +1,37 @@
-<sui-sidebar-container>
-    <sui-sidebar class="inverted vertical" [isVisible]="sidebarOpen$ | async" transition="slide along">
-        <router-outlet name="sidebar"></router-outlet>
-    </sui-sidebar>
-    <sui-sidebar-sibling class="fate-app-pusher" [isDimmedWhenVisible]="true">
-        <div class="fate-app-wrapper">
-            <button class="ui black right attached left floated icon button fate-menu-button"
-                    title="Open Sidebar"
-                    [class.active]="sidebarOpen$ | async" (click)="onMenuClick()">
-                <i class="sidebar icon"></i>
-            </button>
-            <div class="ui container fate-app-content">
-                <router-outlet></router-outlet>
+<div id="fate-toolbar" class="ui bottom fixed menu">
+    <div class="ui bottom pointing dropdown item" suiDropdown>
+        <span class="text">Hello Hello Hello</span>
+        <div class="menu" suiDropdownMenu menuTransition="slide up">
+            <div class="ui icon search input">
+                <i class="search icon"></i>
+                <input placeholder="Search tags..." type="text">
+            </div>
+            <div class="scrolling menu">
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
+                <div class="item">Hello Hello Hello</div>
+                <div class="item">World World World</div>
             </div>
         </div>
-    </sui-sidebar-sibling>
-</sui-sidebar-container>
+    </div>
+    <div class="item">
+        World World World
+    </div>
+</div>
+
+<div class="ui container fate-app-content">
+    <router-outlet></router-outlet>
+</div>
 

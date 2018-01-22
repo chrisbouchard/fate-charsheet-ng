@@ -1,157 +1,153 @@
 <div class="fate-sheet-wrapper">
-    <div class="ui very padded piled segment fate-sheet" [class.loading]="loading">
-        <div *ngIf="character$ | async as character">
+    <div class="ui very padded piled segment fate-sheet">
+        <!-- Header -->
+        <div class="ui stackable bottom aligned two column grid">
 
-            <!-- Header -->
-            <div class="ui stackable bottom aligned two column grid">
-
-                <div class="sixteen wide column">
-                    <div class="ui breadcrumb">
-                        <a class="section" href>Home</a>
-                        <i class="right angle icon divider"></i>
-                        <a class="section" href>Star Trek: Fate</a>
-                        <i class="right angle icon divider"></i>
-                    </div>
+            <div class="sixteen wide column">
+                <div class="ui breadcrumb">
+                    <a class="section" href>Home</a>
+                    <i class="right angle icon divider"></i>
+                    <a class="section" href>Star Trek: Fate</a>
+                    <i class="right angle icon divider"></i>
                 </div>
-
-                <div class="column">
-                    <h1 class="ui header">
-                        {{character.name}}
-                        <span class="sub header">
-                            Played by
-                            <a>{{character.player?.name}}</a>
-                        </span>
-                    </h1>
-                </div>
-
-                <div class="column">
-                    <div class="ui bottom aligned center aligned grid">
-                        <div class="eight wide mobile four wide tablet four wide computer column">
-                            <a class="ui tiny statistic">
-                                <span class="label">Fate Points</span>
-                                <span class="value">1</span>
-                            </a>
-                        </div>
-                        <div class="eight wide mobile four wide tablet four wide computer column">
-                            <a class="ui tiny statistic">
-                                <span class="label">Refresh</span>
-                                <span class="value">2</span>
-                            </a>
-                        </div>
-                        <div class="eight wide mobile four wide tablet four wide computer column">
-                            <a class="ui tiny statistic">
-                                <span class="label">Skill Cap</span>
-                                <span class="value">+5</span>
-                            </a>
-                        </div>
-                        <div class="eight wide mobile four wide tablet four wide computer column">
-                            <a class="ui tiny statistic">
-                                <span class="label">Skill Points</span>
-                                <span class="value">35</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-            <div class="ui section divider"></div>
+            <div class="column">
+                <h1 class="ui header">
+                    {{character.name}}
+                    <span class="sub header">
+                        Played by
+                        <a>{{character.player?.name}}</a>
+                    </span>
+                </h1>
+            </div>
 
-            <!-- Body -->
-            <div class="ui stackable two column grid">
-
-                <div class="column">
-                    <h2 class="ui header">Aspects</h2>
-                    <div class="ui relaxed list">
-                        <div class="item" *ngFor="let aspect of character.aspects">
-                            <div class="ui grey sub header" *ngIf="aspect.label">{{aspect.label}}</div>
-                            <fate-aspect [aspect]="aspect"></fate-aspect>
-                        </div>
+            <div class="column">
+                <div class="ui bottom aligned center aligned grid">
+                    <div class="eight wide mobile four wide tablet four wide computer column">
+                        <a class="ui tiny statistic">
+                            <span class="label">Fate Points</span>
+                            <span class="value">1</span>
+                        </a>
+                    </div>
+                    <div class="eight wide mobile four wide tablet four wide computer column">
+                        <a class="ui tiny statistic">
+                            <span class="label">Refresh</span>
+                            <span class="value">2</span>
+                        </a>
+                    </div>
+                    <div class="eight wide mobile four wide tablet four wide computer column">
+                        <a class="ui tiny statistic">
+                            <span class="label">Skill Cap</span>
+                            <span class="value">+5</span>
+                        </a>
+                    </div>
+                    <div class="eight wide mobile four wide tablet four wide computer column">
+                        <a class="ui tiny statistic">
+                            <span class="label">Skill Points</span>
+                            <span class="value">35</span>
+                        </a>
                     </div>
                 </div>
+            </div>
 
-                <div class="column">
-                    <h2 class="ui header">Skills</h2>
-                    <div class="ui relaxed divided list">
-                        <div class="item"
-                            *ngFor="let entry of character.skillsByRank | entries | sorted:'key':false">
-                            <div class="fate-skill">
-                                <div class="left floated content">
-                                    <div class="fate-skill-rank">
-                                        <div class="ui small header">{{entry.key | signed}}</div>
-                                    </div>
+        </div>
+
+        <div class="ui section divider"></div>
+
+        <!-- Body -->
+        <div class="ui stackable two column grid">
+
+            <div class="column">
+                <h2 class="ui header">Aspects</h2>
+                <div class="ui relaxed list">
+                    <div class="item" *ngFor="let aspect of character.aspects">
+                        <div class="ui grey sub header" *ngIf="aspect.label">{{aspect.label}}</div>
+                        <fate-aspect [aspect]="aspect"></fate-aspect>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h2 class="ui header">Skills</h2>
+                <div class="ui relaxed divided list">
+                    <div class="item"
+                        *ngFor="let entry of character.skillsByRank | entries | sorted:'key':false">
+                        <div class="fate-skill">
+                            <div class="left floated content">
+                                <div class="fate-skill-rank">
+                                    <div class="ui small header">{{entry.key | signed}}</div>
                                 </div>
-                                <div class="content">
-                                    <div class="ui grey sub header fate-skill-adjective">
-                                        {{entry.key | ladderAdjective}}
-                                    </div>
-                                    <div class="ui horizontal list">
-                                        <div class="item" *ngFor="let skill of entry.value | sorted:'name'">
-                                            <a class="fate-taggable">
-                                                {{skill.name}}
-                                            </a>
-                                        </div>
+                            </div>
+                            <div class="content">
+                                <div class="ui grey sub header fate-skill-adjective">
+                                    {{entry.key | ladderAdjective}}
+                                </div>
+                                <div class="ui horizontal list">
+                                    <div class="item" *ngFor="let skill of entry.value | sorted:'name'">
+                                        <a class="fate-taggable">
+                                            {{skill.name}}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="column">
-                    <h2 class="ui header">Stress</h2>
-                    <div class="ui relaxed list">
-                        <div class="item" *ngFor="let track of character.stressTracks">
-                            <div class="ui grey sub header">{{track.name}}</div>
-                            <div class="fate-stress-track">
-                                <div class="ui tiny horizontal list">
-                                    <div class="item" *ngFor="let checked of track.boxes; index as stress">
-                                        <button class="ui compact circular tiny button"
-                                                [class.red]="checked" [class.basic]="!checked">
-                                            {{stress}}
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2 class="ui header">Consequences</h2>
-                    <div class="ui relaxed list">
-                        <div class="item" *ngFor="let consequence of character.consequences">
-                            <div class="fate-consequence">
-                                <div class="left floated content">
-                                    <div class="ui small header">
-                                        {{-consequence.rank | signed}}
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <div class="ui grey sub header">
-                                        {{consequence.label}}
-                                    </div>
-                                    <fate-aspect [aspect]="consequence.aspect" *ngIf="consequence.aspect">
-                                    </fate-aspect>
-                                    <span class="fate-empty-consequence" *ngIf="!consequence.aspect">
-                                        Empty Slot
-                                    </span>
+            <div class="column">
+                <h2 class="ui header">Stress</h2>
+                <div class="ui relaxed list">
+                    <div class="item" *ngFor="let track of character.stressTracks">
+                        <div class="ui grey sub header">{{track.name}}</div>
+                        <div class="fate-stress-track">
+                            <div class="ui tiny horizontal list">
+                                <div class="item" *ngFor="let checked of track.boxes; index as stress">
+                                    <button class="ui compact circular tiny button"
+                                            [class.red]="checked" [class.basic]="!checked">
+                                        {{stress}}
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="column">
-                    <h2 class="ui header">Stunts</h2>
-                    <div class="ui very relaxed list">
-                        <div class="item" *ngFor="let stunt of character.stunts">
-                            <div class="header">{{stunt.name}}</div>
-                            <div class="description">
-                                {{stunt.description}}
+                <h2 class="ui header">Consequences</h2>
+                <div class="ui relaxed list">
+                    <div class="item" *ngFor="let consequence of character.consequences">
+                        <div class="fate-consequence">
+                            <div class="left floated content">
+                                <div class="ui small header">
+                                    {{-consequence.rank | signed}}
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="ui grey sub header">
+                                    {{consequence.label}}
+                                </div>
+                                <fate-aspect [aspect]="consequence.aspect" *ngIf="consequence.aspect">
+                                </fate-aspect>
+                                <span class="fate-empty-consequence" *ngIf="!consequence.aspect">
+                                    Empty Slot
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="column">
+                <h2 class="ui header">Stunts</h2>
+                <div class="ui very relaxed list">
+                    <div class="item" *ngFor="let stunt of character.stunts">
+                        <div class="header">{{stunt.name}}</div>
+                        <div class="description">
+                            {{stunt.description}}
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

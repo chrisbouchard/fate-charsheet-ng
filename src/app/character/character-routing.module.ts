@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { CharacterViewerComponent } from './character-viewer.component';
 
 const routes: Routes = [
-    { path: ':id', component: CharacterSheetComponent }
+    { path: ':id', component: CharacterViewerComponent }
 ];
 
 @NgModule({

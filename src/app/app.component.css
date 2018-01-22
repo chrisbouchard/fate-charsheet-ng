@@ -1,12 +1,15 @@
+/*
 .fate-app-pusher {
     height: 100vh;
+    overflow-y: auto;
+    overflow-x: initial;
 }
 
 .fate-app-wrapper {
     height: 100vh;
-    overflow-y: auto;
     background: white;
 }
+*/
 
 .fate-app-content {
     padding-top: 20px;
@@ -14,7 +17,7 @@
 }
 
 .ui.attached.button.fate-menu-button {
-    position: sticky;
+    position: fixed;
     top: 40px;
     z-index: 10;
 }
