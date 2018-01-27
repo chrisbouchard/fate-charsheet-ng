@@ -20,7 +20,7 @@ export class LadderAdjectivePipe implements PipeTransform {
         [+8, 'Legendary']
     ]);
 
-    transform(rank: number): string {
+    transform(rank: number): string | undefined {
         if (rank === undefined) {
             return undefined;
         }

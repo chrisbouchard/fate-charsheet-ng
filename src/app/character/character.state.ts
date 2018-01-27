@@ -11,14 +11,14 @@ export const openAdapter: EntityAdapter<Character> =
 
 export module CharacterState {
     export interface Options {
-        activeId: string;
+        activeId: string | undefined;
         open: EntityState<Character>;
     }
 }
 
 export class CharacterState extends FromOptions<CharacterState.Options>() {
 
-    get activeCharacter(): Character {
+    get activeCharacter(): Character | undefined {
         if (this.activeId === undefined) {
             return undefined;
         }

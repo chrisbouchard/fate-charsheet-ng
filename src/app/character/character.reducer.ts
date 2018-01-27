@@ -1,12 +1,21 @@
 import { set } from 'monolite';
 
+import { Character } from '../model/character';
+
 import { CharacterActions, SelectCharacter, SetCharacterStress } from './character.actions';
 import { CharacterState, DEFAULT_CHARACTER_STATE, openAdapter } from './character.state';
 
-export function characterReducer(
-    state: CharacterState = DEFAULT_CHARACTER_STATE,
-    action: typeof CharacterActions
-): CharacterState {
+const {
+    selectEntities
+} = openAdapter.getSelectors();
+
+export function characterReducer(state: CharacterState = DEFAULT_CHARACTER_STATE,
+                                 action: typeof CharacterActions): CharacterState {
+    const activeCharacter: Character | undefined =
+        state.activeId ?
+            selectEntities(state.open)[state.activeId] :
+            undefined;
+
     switch (action.type) {
 
         case SelectCharacter.type: {
@@ -14,19 +23,21 @@ export function characterReducer(
         }
 
         case SetCharacterStress.type:
+            if (!activeCharacter) {
+                return state;
+            }
+
             return set(state, _ => _.open)(
                 openCharacters =>
                     openAdapter.updateOne({
-                            id: state.activeId,
-                            changes: {
-                                stressTracks:
-                                    set(state.activeCharacter.stressTracks, _ => _[action.track].boxes[action.index])(
-                                        action.value
-                                    )
-                            }
-                        },
-                        openCharacters
-                    )
+                        id: activeCharacter.id,
+                        changes: {
+                            stressTracks:
+                                set(activeCharacter.stressTracks, _ => _[action.track].boxes[action.index])(
+                                    action.value
+                                )
+                        }
+                    }, openCharacters)
             );
 
         default:

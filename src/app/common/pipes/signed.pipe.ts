@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SignedPipe implements PipeTransform {
 
-    transform(value: number): string {
+    transform(value: number): string | undefined {
         if (value === undefined) {
             return undefined;
         }

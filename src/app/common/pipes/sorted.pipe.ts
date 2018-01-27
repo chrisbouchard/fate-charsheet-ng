@@ -7,7 +7,7 @@ import { orderBy } from 'lodash';
 })
 export class SortedPipe implements PipeTransform {
 
-    transform<T>(iterable: Iterable<T>, key?: keyof T, ascending: boolean = true): T[] {
+    transform<T>(iterable: Iterable<T>, key?: keyof T, ascending: boolean = true): T[] | undefined {
         if (iterable === undefined) {
             return undefined;
         }

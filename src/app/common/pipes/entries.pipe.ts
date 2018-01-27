@@ -8,7 +8,7 @@ import { EntryPair } from '../../model/entry-pair';
 })
 export class EntriesPipe implements PipeTransform {
 
-    transform(obj: object): EntryPair[] {
+    transform(obj: object): EntryPair[] | undefined {
         if (obj === undefined) {
             return undefined;
         }

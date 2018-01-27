@@ -2,7 +2,7 @@ export function groupToArray<T>(iterable: Iterable<T>, getIndex: (item: T) => nu
     /* Build an array of groups. This array is sparse, which means that each index that had no corresponding group
      * elements will be an empty slot. */
     const sparse =
-        [...iterable].reduce((groups, item) => {
+        [...iterable].reduce<T[][]>((groups, item) => {
             const index = getIndex(item);
             const group = groups[index];
 
