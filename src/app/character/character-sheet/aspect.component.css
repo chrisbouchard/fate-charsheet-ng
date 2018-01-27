@@ -1,0 +1,15 @@
+.fate-aspect {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.fate-action {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    min-width: 150px;
+}
+
+.fate-action .label {
+    margin-right: 0;
+}
