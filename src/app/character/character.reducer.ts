@@ -5,22 +5,15 @@ import { Character } from '../model/character';
 import { CharacterActions, SelectCharacter, SetCharacterStress } from './character.actions';
 import { CharacterState, DEFAULT_CHARACTER_STATE, openAdapter } from './character.state';
 
-const {
-    selectEntities
-} = openAdapter.getSelectors();
-
 export function characterReducer(state: CharacterState = DEFAULT_CHARACTER_STATE,
                                  action: typeof CharacterActions): CharacterState {
     const activeCharacter: Character | undefined =
-        state.activeId ?
-            selectEntities(state.open)[state.activeId] :
-            undefined;
+        state.activeCharacter;
 
     switch (action.type) {
 
-        case SelectCharacter.type: {
+        case SelectCharacter.type:
             return set(state, _ => _.activeId)(action.id);
-        }
 
         case SetCharacterStress.type:
             if (!activeCharacter) {

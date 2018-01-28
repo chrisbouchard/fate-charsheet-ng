@@ -9,6 +9,8 @@ export const openAdapter: EntityAdapter<Character> =
         selectId: character => character.id
     });
 
+const { selectEntities } = openAdapter.getSelectors();
+
 export module CharacterState {
     export interface Options {
         activeId: string | undefined;
@@ -23,7 +25,7 @@ export class CharacterState extends FromOptions<CharacterState.Options>() {
             return undefined;
         }
 
-        return this.open.entities[this.activeId];
+        return selectEntities(this.open)[this.activeId];
     }
 
 }
