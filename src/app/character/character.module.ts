@@ -12,6 +12,7 @@ import { characterReducer } from './character.reducer';
 import { AspectComponent } from './character-sheet/aspect.component';
 import { CharacterViewerComponent } from './character-viewer.component';
 import { CharacterMenuComponent } from './character-menu/character-menu.component';
+import { MenuItemComponent } from './character-menu/menu-item.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CharacterMenuComponent } from './character-menu/character-menu.componen
         CharacterSheetComponent,
         AspectComponent,
         CharacterViewerComponent,
-        CharacterMenuComponent
+        CharacterMenuComponent,
+        MenuItemComponent
     ],
     providers: [
         CharacterFacadeService

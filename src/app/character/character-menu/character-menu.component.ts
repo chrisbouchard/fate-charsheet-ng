@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { Character } from '../../model/character';
 
 @Component({
   selector: 'fate-character-menu',
   templateUrl: './character-menu.component.html',
   styleUrls: ['./character-menu.component.css']
 })
-export class CharacterMenuComponent implements OnInit {
+export class CharacterMenuComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+    @Input() characters: Character[];
 
 }
