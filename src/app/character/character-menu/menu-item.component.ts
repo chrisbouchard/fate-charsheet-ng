@@ -30,9 +30,9 @@ import { Character } from '../../model/character';
 })
 export class MenuItemComponent {
 
-    @Input() character: Character;
+    @Input() character!: Character;
 
-    hovered: boolean;
+    hovered: boolean = false;
 
     get state(): string {
         if (this.hovered) {

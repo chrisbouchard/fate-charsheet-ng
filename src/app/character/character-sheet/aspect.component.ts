@@ -9,7 +9,6 @@ import { Aspect } from '../../model/aspect';
 })
 export class AspectComponent {
 
-    @Input()
-    aspect: Aspect;
+    @Input() aspect!: Aspect;
 
 }

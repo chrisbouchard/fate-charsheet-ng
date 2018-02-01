@@ -9,7 +9,6 @@ import { Character } from '../../model/character';
 })
 export class CharacterSheetComponent {
 
-    @Input()
-    character: Character;
+    @Input() character!: Character;
 
 }

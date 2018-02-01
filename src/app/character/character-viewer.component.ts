@@ -10,15 +10,13 @@ import { CharacterFacadeService } from './character-facade.service';
   templateUrl: './character-viewer.component.html',
   styleUrls: ['./character-viewer.component.css']
 })
-export class CharacterViewerComponent implements OnInit {
+export class CharacterViewerComponent {
 
     character$: Observable<Character>;
 
     constructor(
         private characterFacade: CharacterFacadeService
-    ) {}
-
-    ngOnInit(): void {
+    ) {
         this.character$ = this.characterFacade.find('1');
     }
 

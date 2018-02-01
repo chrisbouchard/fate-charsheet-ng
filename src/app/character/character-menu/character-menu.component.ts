@@ -9,6 +9,6 @@ import { Character } from '../../model/character';
 })
 export class CharacterMenuComponent {
 
-    @Input() characters: Character[];
+    @Input() characters!: Character[];
 
 }
