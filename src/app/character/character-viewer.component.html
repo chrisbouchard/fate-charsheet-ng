@@ -1,5 +1,5 @@
 <ng-container *ngIf="character$ | async as character">
-    <fate-character-menu></fate-character-menu>
+    <fate-character-menu [characters]="characters$ | async"></fate-character-menu>
     <div class="sheet-wrapper">
         <fate-character-sheet [character]="character"></fate-character-sheet>
     </div>

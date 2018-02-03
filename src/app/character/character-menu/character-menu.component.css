@@ -1,0 +1,4 @@
+#fate-character-menu > fate-menu-item.item {
+    padding: 0 !important;
+    line-height: 0;
+}

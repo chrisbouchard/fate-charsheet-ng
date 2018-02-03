@@ -6,10 +6,9 @@
                 <i class="search icon"></i>
                 <input placeholder="Search tags..." type="text">
             </div>
-            <div class="scrolling menu">
-                <div class="item" *ngFor="let character of characters">
-                    <fate-menu-item [character]="character"></fate-menu-item>
-                </div>
+            <div id="fate-character-menu" class="scrolling menu">
+                <fate-menu-item *ngFor="let character of characters" [character]="character" class="item">
+                </fate-menu-item>
             </div>
         </div>
     </div>

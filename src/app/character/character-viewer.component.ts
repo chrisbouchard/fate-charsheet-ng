@@ -13,11 +13,13 @@ import { CharacterFacadeService } from './character-facade.service';
 export class CharacterViewerComponent {
 
     character$: Observable<Character>;
+    characters$: Observable<Character[]>;
 
     constructor(
         private characterFacade: CharacterFacadeService
     ) {
         this.character$ = this.characterFacade.find('1');
+        this.characters$ = this.characterFacade.findAll();
     }
 
 }
