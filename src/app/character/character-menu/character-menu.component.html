@@ -1,18 +1,18 @@
 <div id="fate-toolbar" class="ui bottom fixed menu">
-    <div class="ui bottom pointing dropdown item" suiDropdown>
-        <span class="text">Hello Hello Hello</span>
+    <div class="item"></div>
+    <div class="ui upward dropdown item fate-menu-item" suiDropdown>
+        <fate-menu-item [character]="characters[0]" [active]="true"></fate-menu-item>
         <div class="menu" suiDropdownMenu menuTransition="slide up">
             <div class="ui icon search input">
                 <i class="search icon"></i>
                 <input placeholder="Search tags..." type="text">
             </div>
-            <div id="fate-character-menu" class="scrolling menu">
-                <fate-menu-item *ngFor="let character of characters" [character]="character" class="item">
-                </fate-menu-item>
+            <div class="scrolling menu">
+                <div *ngFor="let character of characters; index as index" class="item fate-menu-item">
+                    <fate-menu-item [character]="character" [active]="index == 0">
+                    </fate-menu-item>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="item">
-        World World World
     </div>
 </div>

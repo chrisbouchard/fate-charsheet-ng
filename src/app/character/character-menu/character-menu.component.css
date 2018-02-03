@@ -1,4 +1,10 @@
-#fate-character-menu > fate-menu-item.item {
+.ui.menu > .fate-menu-item.item,
+.ui.menu .ui.dropdown .menu > .fate-menu-item.item {
     padding: 0 !important;
     line-height: 0;
+}
+
+.fate-menu-item.item {
+    min-width: 250px;
+    width: 250px;
 }
