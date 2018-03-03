@@ -8,7 +8,7 @@
                 <input placeholder="Search tags..." type="text">
             </div>
             <div class="scrolling menu">
-                <div *ngFor="let character of characters; index as index" class="item fate-menu-item">
+                <div *ngFor="let character of characters; index as index; trackBy: trackByCharacterId" class="item fate-menu-item">
                     <fate-menu-item [character]="character" [active]="index == 0">
                     </fate-menu-item>
                 </div>

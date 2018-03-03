@@ -11,4 +11,8 @@ export class CharacterMenuComponent {
 
     @Input() characters!: Character[];
 
+    trackByCharacterId(index: number, character: Character): string {
+        return character.id;
+    }
+
 }

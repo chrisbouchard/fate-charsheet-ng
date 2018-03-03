@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
+    "pretty": true,
     "strict": true,
     "target": "es2015",
     "typeRoots": [
@@ -21,6 +22,7 @@
     ]
   },
   "angularCompilerOptions": {
+    "disableTypeScriptVersionCheck": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "strictMetadataEmit": true

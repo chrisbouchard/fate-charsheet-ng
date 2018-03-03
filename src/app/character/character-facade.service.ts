@@ -136,8 +136,11 @@ export class CharacterFacadeService {
     }
 
     findAll(): Observable<Character[]> {
-        const fooBars = Array.from({ length: 4 }, () => this.fooBar);
-        return of(this.fixedCharacters.concat(fooBars));
+        const characters = Array.from({ length: 4 }, () => this.fooBar);
+        const charactersWithIds =
+            this.fixedCharacters.concat(characters)
+                .map((character, index) => set(character, _ => _.id)(String(index)));
+        return of(charactersWithIds);
     }
 
 }

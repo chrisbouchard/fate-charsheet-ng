@@ -15,7 +15,7 @@ import { Character } from '../../model/character';
             state('hovered', style({
                 'transform': `translateX(-60px)`
             })),
-            transition('* => *', animate('250ms ease-in-out'))
+            transition('default <=> hovered', animate('250ms'))
         ]),
         trigger('imageStateChanged', [
             state('default', style({
@@ -24,7 +24,7 @@ import { Character } from '../../model/character';
             state('hovered', style({
                 'transform': `translateX(0)`
             })),
-            transition('* => *', animate('250ms ease-in-out'))
+            transition('default <=> hovered', animate('250ms'))
         ])
     ]
 })
@@ -43,18 +43,14 @@ export class MenuItemComponent {
         return 'default';
     }
 
-    @HostListener('mouseenter', ['$event'])
-    onMouseEnter(event: Event): void {
-        if (event.eventPhase === Event.AT_TARGET) {
-            this.hovered = true;
-        }
+    @HostListener('mouseenter')
+    onMouseEnter(): void {
+        this.hovered = true;
     }
 
-    @HostListener('mouseleave', ['$event'])
-    onMouseLeave(event: Event): void {
-        if (event.eventPhase === Event.AT_TARGET) {
-            this.hovered = false;
-        }
+    @HostListener('mouseleave')
+    onMouseLeave(): void {
+        this.hovered = false;
     }
 
 }

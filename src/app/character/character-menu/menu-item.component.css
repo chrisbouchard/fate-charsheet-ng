@@ -2,7 +2,7 @@
     cursor: pointer;
 }
 
-#name-text {
+.name-text {
     dominant-baseline: central;
     fill: white;
     font-size: 7px;
@@ -12,6 +12,7 @@
     vector-effect: non-scaling-stroke;
 }
 
-#portrait-cover {
+.portrait-background,
+.portrait-cover {
     fill: white;
 }

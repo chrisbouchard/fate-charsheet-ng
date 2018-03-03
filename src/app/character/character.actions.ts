@@ -42,7 +42,7 @@ export const ToggleSkill =
 
 
 export const CharacterActions =
-    union(
+    union({
         CloseCharacter,
         OpenCharacter,
         SelectCharacter,
@@ -56,4 +56,4 @@ export const CharacterActions =
         ClearSkills,
         ToggleAspect,
         ToggleSkill
-    );
+    });
