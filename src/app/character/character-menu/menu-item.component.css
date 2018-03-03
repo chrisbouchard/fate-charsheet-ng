@@ -2,17 +2,27 @@
     cursor: pointer;
 }
 
-.name-text {
-    dominant-baseline: central;
-    fill: white;
-    font-size: 7px;
+#name-text {
+    fill: black;
+    font-size: 6px;
+    font-weight: bold;
+}
+
+#concept-text {
+    fill: black;
+    font-size: 5px;
+}
+
+.fate-text {
+    dominant-baseline: middle;
     paint-order: stroke;
-    stroke-width: 1.5px;
-    stroke: black;
+    stroke: white;
+    stroke-linejoin: round;
+    stroke-width: 4px;
     vector-effect: non-scaling-stroke;
 }
 
-.portrait-background,
-.portrait-cover {
+#portrait-cover {
     fill: white;
 }
+
